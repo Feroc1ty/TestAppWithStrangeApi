@@ -30,14 +30,10 @@ class MainActivity : AppCompatActivity() {
             apiData = homeMvvm.readApiData()
         }
         prepareGoodsRcView()
-        homeMvvm.getGoodsList(apiData)
+        homeMvvm.parseGoodsList(apiData)
         observeGoodsItemsLiveData()
         onGoodsItemClick()
     }
-
-
-
-
 
     private fun onGoodsItemClick(){
         goodsItemsAdapter.onItemClick = {goods->
@@ -47,16 +43,10 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(GOODS_COUNT, goods.count.toString())
             intent.putExtra(GOODS_PRICE, goods.price.toString())
             intent.putExtra(GOODS_ROSNPRICE, goods.price.toString())
-            for (attr in goods.attributes){
-                if (attr.id == 22){
-                    intent.putExtra(GOODS_ALCOHOL, attr.data)
-                }
-                if (attr.id == 27){
-                    intent.putExtra(GOODS_ALCOHOL_DEGREE, attr.data)
-                }
+            for (attribute in goods.attributes){
+                intent.putExtra(attribute.name, attribute.data)
             }
             startActivity(intent)
-
         }
     }
     /*
@@ -72,7 +62,7 @@ class MainActivity : AppCompatActivity() {
     private fun observeGoodsItemsLiveData(){
         homeMvvm.observeGoodsLiveData().observe(this){
             goodsList ->
-            goodsItemsAdapter.setGoods(goodsList as ArrayList<Goods> /* = java.util.ArrayList<ru.rykunov.testappwithapi.pojo.Goods> */)
+            goodsItemsAdapter.setGoods(goodsList as ArrayList<Goods>)
         }
     }
 

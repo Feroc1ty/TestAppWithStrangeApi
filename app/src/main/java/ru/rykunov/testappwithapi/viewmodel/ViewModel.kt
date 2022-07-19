@@ -19,7 +19,7 @@ class ViewModel : ViewModel() {
     }
 
 
-    fun getGoodsList(apiGoodsList: String) {
+    fun parseGoodsList(apiGoodsList: String) {
 
         val goodsList = apiGoodsList.replace("\uFEFF", "")
         var goodsData = ArrayList<Goods>()
@@ -43,13 +43,13 @@ class ViewModel : ViewModel() {
                 val startDataPattern = "<goods_attr id=\"\\d+\" attr_id=\"\\d+\">".toRegex()
                 val endDataPattern = "</goods_attr>"
                 val attributeData = (line.replace(startDataPattern, "")).replace(endDataPattern, "")
-                goods.attributes.add(GoodsAttribute(22, attributeData))
+                goods.attributes.add(GoodsAttribute(22, attributeData, "goodsAlcohol"))
             }
             if (line.matches(Regex("<goods_attr id=\"\\d+\" attr_id=\"27\">.+"))) {
                 val startDataPattern = "<goods_attr id=\"\\d+\" attr_id=\"\\d+\">".toRegex()
                 val endDataPattern = "</goods_attr>"
                 val attributeData = (line.replace(startDataPattern, "")).replace(endDataPattern, "")
-                goods.attributes.add(GoodsAttribute(27, attributeData))
+                goods.attributes.add(GoodsAttribute(27, attributeData, "goodsAlcoholDegree"))
             }
 
         }
