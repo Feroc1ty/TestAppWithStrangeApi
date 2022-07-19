@@ -1,6 +1,6 @@
 package ru.rykunov.testappwithapi.pojo
 
-data class GoodsAttr (
-    val goodsAttrId: Int,
+data class GoodsAttribute(
+    val id: Int,
     val data: String
-        )
+)

@@ -2,7 +2,6 @@ package ru.rykunov.testappwithapi
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -48,11 +47,11 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(GOODS_COUNT, goods.count.toString())
             intent.putExtra(GOODS_PRICE, goods.price.toString())
             intent.putExtra(GOODS_ROSNPRICE, goods.price.toString())
-            for (attr in goods.attrs){
-                if (attr.goodsAttrId == 22){
+            for (attr in goods.attributes){
+                if (attr.id == 22){
                     intent.putExtra(GOODS_ALCOHOL, attr.data)
                 }
-                if (attr.goodsAttrId == 27){
+                if (attr.id == 27){
                     intent.putExtra(GOODS_ALCOHOL_DEGREE, attr.data)
                 }
             }
