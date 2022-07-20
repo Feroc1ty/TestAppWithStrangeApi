@@ -5,7 +5,7 @@ data class Goods(
     val code: String,
     val name: String,
     val recipeName: String,
-    val price: Double,
-    val count: Double,
+    val price: Float,
+    val count: Float,
     var attributes: ArrayList<GoodsAttribute>
 )

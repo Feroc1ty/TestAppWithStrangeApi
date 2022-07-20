@@ -42,7 +42,11 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(GOODS_CODE, goods.code)
             intent.putExtra(GOODS_COUNT, goods.count.toString())
             intent.putExtra(GOODS_PRICE, goods.price.toString())
-            intent.putExtra(GOODS_ROSNPRICE, goods.price.toString())
+            intent.putExtra(GOODS_ROSNPRICE, (
+                    if (goods.count > 0) (goods.price*goods.count).toString()
+                    else (goods.price).toString())
+                    )
+
             for (attribute in goods.attributes){
                 intent.putExtra(attribute.name, attribute.data)
             }

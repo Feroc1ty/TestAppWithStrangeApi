@@ -33,8 +33,8 @@ class ViewModel : ViewModel() {
                     objectparams[1],
                     objectparams[2],
                     objectparams[3],
-                    objectparams[4].toDouble(),
-                    objectparams[5].toDouble(),
+                    objectparams[4].toFloat(),
+                    objectparams[5].toFloat(),
                     attributes = arrayListOf()
                 )
                 goodsData.add(goods)

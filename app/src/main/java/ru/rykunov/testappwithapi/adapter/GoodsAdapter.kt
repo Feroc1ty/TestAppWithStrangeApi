@@ -25,7 +25,7 @@ class GoodsAdapter(mainActivity: MainActivity): RecyclerView.Adapter<GoodsAdapte
         holder.binding.tvName.setText(goodsList[position].name)
         holder.binding.tvCode.setText(goodsList[position].code)
         holder.binding.tvCount.setText(goodsList[position].count.toString())
-        holder.binding.tvPrice.setText(goodsList[position].price.toString())
+        holder.binding.tvPrice.setText("${goodsList[position].price} ₽")
 
         holder.binding.goodsCard.setOnClickListener{
             onItemClick.invoke(goodsList[position])

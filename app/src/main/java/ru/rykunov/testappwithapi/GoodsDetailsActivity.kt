@@ -1,7 +1,9 @@
 package ru.rykunov.testappwithapi
 
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import ru.rykunov.testappwithapi.databinding.ActivityGoodsDetailsBinding
 
 class GoodsDetailsActivity : AppCompatActivity() {
@@ -29,10 +31,16 @@ class GoodsDetailsActivity : AppCompatActivity() {
             tvDetailsName.setText(name)
             tvDetailsCode.setText(code)
             tvDetailsCount.setText(count.toString())
-            tvDetailsPrice.setText(price.toString())
-            tvDetailsRosnPrice.setText(rosnPrice.toString())
-            tvDetailsAlcohol.setText(alcohol)
-            tvDetailsAlcoholDegree.setText(alcoholDegree)
+            tvDetailsPrice.setText("$price ₽")
+            tvDetailsRosnPrice.setText("$rosnPrice ₽")
+            if (alcohol != null){
+                tvalcohol.visibility = View.VISIBLE
+                tvalcoholdegree.visibility = View.VISIBLE
+                tvDetailsAlcohol.visibility = View.VISIBLE
+                tvDetailsAlcoholDegree.visibility = View.VISIBLE
+                tvDetailsAlcohol.setText(alcohol)
+                tvDetailsAlcoholDegree.setText("$alcoholDegree %")
+            }
         }
 
     }
